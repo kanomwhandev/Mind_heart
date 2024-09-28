@@ -1,0 +1,453 @@
+/* นำเข้าฟอนต์จาก Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200;700&family=Montserrat&family=Open+Sans&family=Merriweather&display=swap");
+
+/* ตั้งค่าพื้นฐาน */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    font-size: large;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+/* สไตล์พื้นหลังสีรุ้งที่มีการแอนิเมชัน */
+body {
+    background: linear-gradient(
+        45deg,
+        #02e1ba 0%,
+        #26c9f2 29%,
+        #d911f2 66%,
+        #ffa079 100%
+    );
+    background-size: 400% 400%;
+    animation: Gradient 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px;
+    font-family: 'Open Sans', sans-serif;
+    color: #555;
+    transition: background 0.5s ease;
+}
+
+/* โหมดกลางวัน/กลางคืน */
+body.dark-mode {
+    background: linear-gradient(
+        45deg,
+        #0f0c29 0%,
+        #302b63 50%,
+        #24243e 100%
+    );
+    color: #f5f5f5;
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* การเพิ่มแอนิเมชันเพิ่มเติมสำหรับองค์ประกอบบางอย่าง */
+.area::before,
+.area::after {
+    content: " ";
+    width: 70vmax;
+    height: 70vmax;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.07);
+    left: -20vmin;
+    top: -20vmin;
+    animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+    z-index: 1;
+    will-change: border-radius, transform;
+    transform-origin: 30% 30%;
+    pointer-events: none;
+}
+
+.area::after {
+    width: 70vmin;
+    height: 70vmin;
+    left: auto;
+    right: -10vmin;
+    top: auto;
+    bottom: 0;
+    animation: morph 10s linear infinite alternate,
+        spin 26s linear infinite reverse;
+    transform-origin: 10% 10%;
+}
+
+@keyframes morph {
+    0% {
+        border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+    }
+    100% {
+        border-radius: 40% 60%;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+/* สไตล์ของคอนเทนเนอร์หลัก */
+.container {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    z-index: 2; /* เพื่อให้อยู่เหนือองค์ประกอบพื้นหลัง */
+    transition: background-color 0.5s ease;
+}
+
+body.dark-mode .container {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* หัวข้อหลัก */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
+    font-family: "Merriweather", serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    box-shadow: 5px 5px 2px 1.5px rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: white;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark-mode h1 {
+    background-color: #333333;
+    color: #f5f5f5;
+}
+
+/* หัวข้อคอมเมนต์ */
+#comments h2 {
+    margin-bottom: 15px;
+    color: #333333;
+    font-family: "Merriweather", serif;
+    text-align: center;
+    border: 2px ridge #000000;
+    box-shadow: 5px 6px 2px 1px rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark-mode #comments h2 {
+    background-color: #444444;
+    color: #f5f5f5;
+}
+
+/* สไตล์ฟอร์ม */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    font-family: 'Kanit', sans-serif;
+    transition: background-color 0.5s ease, color 0.5s ease, border 0.3s ease;
+}
+
+body.dark-mode textarea {
+    background-color: #555555;
+    color: #f5f5f5;
+    border: 1px solid #777777;
+}
+
+/* กลุ่มปุ่ม */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* สไตล์ปุ่ม */
+button {
+    padding: 10px 20px;
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #8f00ff
+    );
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-position 0.3s ease;
+    background-size: 400% 400%;
+    animation: Gradient 15s ease infinite;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* ปุ่มล้างทั้งหมด */
+#clear-comments {
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #8f00ff
+    );
+    background-size: 400% 400%;
+}
+
+#clear-comments:hover {
+    background-position: 100% 0;
+}
+
+/* สไตล์คอมเมนต์ */
+.comment {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 0.5s forwards;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark-mode .comment {
+    background-color: #333333;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment-text {
+    font-size: 1.6rem;
+    color: #333333;
+    flex: 1;
+    margin-right: 10px;
+    transition: color 0.5s ease;
+}
+
+body.dark-mode .comment-text {
+    color: #f5f5f5;
+}
+
+.comment-date {
+    font-size: 1.2rem;
+    color: #888888;
+    white-space: nowrap;
+}
+
+.delete-button {
+    background-color: transparent;
+    border: none;
+    color: #ff4d4d;
+    cursor: pointer;
+    font-size: 1.4rem;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+.delete-button:hover {
+    color: #cc0000;
+}
+
+/* ปุ่มถูกใจ */
+.like-button {
+    background-color: transparent;
+    border: none;
+    color: #888888;
+    cursor: pointer;
+    font-size: 1.4rem;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+.like-button:hover {
+    color: #ff4081;
+}
+
+.liked {
+    color: #ff4081;
+}
+
+/* สไตล์เพิ่มเติมจากโค้ดสีรุ้ง */
+.button {
+    position: relative;
+    display: inline-block;
+    margin: 20px;
+}
+
+.button a {
+    color: white;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 2.4rem;
+    text-align: center;
+    text-decoration: none;
+    background-color: #FFA12B;
+    display: block;
+    position: relative;
+    padding: 20px 40px;
+    text-shadow: 0px 1px 0px #000;
+    filter: dropshadow(color=#000, offx=0px, offy=1px);
+    box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+    border-radius: 5px;
+}
+
+.button:hover a:active {
+    background-color: #ff8000fb;
+    color: rgba(255, 255, 255, 0.959);
+}
+
+.button a:active {
+    top: 10px;
+    background-color: #F78900;
+    box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+}
+
+.button:after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    padding: 4px;
+    position: absolute;
+    bottom: -15px;
+    left: -4px;
+    z-index: -1;
+    background-color: #2B1800;
+    border-radius: 5px;
+}
+
+/* สไตล์สำหรับ Flakes (ตกแต่งเพิ่มเติม) */
+.flake {
+    position: fixed;
+    top: -20%;
+    animation: fall 10s linear infinite;
+    font-size: 3rem;
+    color: white;
+}
+
+.flake:nth-last-of-type(1) {
+    left: 0%;
+    animation-delay: 0s;
+}
+
+.flake:nth-last-of-type(2) {
+    left: 10%;
+    animation-delay: 3s;
+}
+
+.flake:nth-last-of-type(3) {
+    left: 20%;
+    animation-delay: 5s;
+}
+
+.flake:nth-last-of-type(4) {
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.flake:nth-last-of-type(5) {
+    left: 40%;
+    animation-delay: 1s;
+}
+
+.flake:nth-last-of-type(6) {
+    left: 50%;
+    animation-delay: 4s;
+}
+
+.flake:nth-last-of-type(7) {
+    left: 60%;
+    animation-delay: 3s;
+}
+
+.flake:nth-last-of-type(8) {
+    left: 70%;
+    animation-delay: 2s;
+}
+
+.flake:nth-last-of-type(9) {
+    left: 80%;
+    animation-delay: 0s;
+}
+
+.flake:nth-last-of-type(10) {
+    left: 90%;
+    animation-delay: 6s;
+}
+
+@keyframes fall {
+    0% {
+        top: -20%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+/* ปุ่มสลับโหมด */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#toggle-theme {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#toggle-theme:hover {
+    transform: rotate(20deg);
+}
+
+/* แอนิเมชันสำหรับคอมเมนต์ */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

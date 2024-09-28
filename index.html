@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- เชื่อมต่อฟอนต์จาก Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;700&family=Montserrat&family=Open+Sans&family=Merriweather&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <title>ระบายความในใจ</title>
+  </head>
+  <body>
+    <!-- ปุ่มสลับโหมดกลางวัน/กลางคืน -->
+    <div class="theme-toggle">
+      <button id="toggle-theme">🌙</button>
+    </div>
+
+    <!-- เพิ่ม flakes สำหรับตกแต่งเพิ่มเติม -->
+    <div class="flake">❄️</div>
+    <div class="flake">❄️</div>
+    <div class="flake">❄️</div>
+    <div class="flake">❄️</div>
+    <div class="flake">❄️</div>
+    <div class="flake">❄️</div>
+    <div class="flake">❄️</div>
+    <div class="flake">❄️</div>
+    <div class="flake">❄️</div>
+    <div class="flake">❄️</div>
+
+    <div class="container">
+      <h1>ระบายความในใจ</h1>
+      <form id="new-comment">
+        <textarea
+          name="comment-text"
+          id="comment-text"
+          placeholder="เขียนความรู้สึกของคุณที่นี่..."
+          required
+        ></textarea>
+        <div class="button-group">
+          <button type="submit">ส่ง</button>
+          <button type="button" id="clear-comments">ล้างทั้งหมด</button>
+        </div>
+      </form>
+      <div id="comments">
+        <h2>ความคิดเห็น:</h2>
+        <!-- คอมเมนต์จะแสดงที่นี่ -->
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
